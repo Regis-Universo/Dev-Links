@@ -1,0 +1,180 @@
+* { /* O asterisco significa que o seletor é universal, ou seja, vai selecionar todos os elementos da página */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* faz com que o padding e a borda sejam incluídos na largura e altura do elemento */
+}
+
+:root {
+   --text-color: #fff; /* define uma variável de cor de texto */
+   --bg-url: url(./assets/bg-mobile.jpg); /* define uma variável de url de fundo */
+   --stroke-color: rgba(255, 255, 255, 0.5); /* define uma variável de cor de borda */
+   --surface-color: rgba(255, 255, 255, 0.05); /* define uma variável de cor de superfície */
+   --surface-color-hover: rgba(0, 0, 0, 0.2); /* define uma variável de cor de superfície para hover */
+   --hilight-color: rgba(0, 0, 0, 0.1); /* define uma variável de cor de destaque */
+   --switch-bg-url: url(./assets/moon-stars.svg); /* define uma variável de url de fundo para o botão de switch */
+}
+
+.light {
+    --text-color: #000; /* define uma variável de cor de texto */
+    --bg-url: url(./assets/bg-mobile/light.jpg); /* define uma variável de url de fundo */
+    --stroke-color: rgba(0, 0, 0, 0.5); /* define uma variável de cor de borda */
+    --surface-color: rgba(0, 0, 0, 0.05); /* define uma variável de cor de superfície */
+    --surface-color-hover: rgba(0, 0, 0, 0.02); /* define uma variável de cor de superfície para hover */
+    --hilight-color: rgba(0, 0, 0, 0.1); /* define uma variável de cor de destaque */
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+    /* Escrevendo cada pedaço separadamente: */
+
+    /* Esse formato é infalível e muito mais fácil de debugar, pois você vê exatamente onde está o erro se algo não funcionar. */
+
+    /*
+  background-image: url(assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;  /* cobre toda a tela 
+  */
+
+    /* Usanddo a Shorthand (Recomendado para iniciantes) */
+
+    /* BACKGROUND: color image repeat position size */
+
+    background: var(--bg-url)  no-repeat top center / cover;
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+    color: var(--text-color); /* usa a variável de cor de texto definida no :root */
+    text-decoration: none; /* remove o sublinhado dos links */
+    box-sizing: border-box; /* faz com que o padding e a borda sejam incluídos na largura e altura do elemento */
+}
+
+/* " # " significa que o seletor é um ID, ou seja, só pode existir 1 elemento com esse id na página */
+#container {
+    width: 360px;
+    /* height: 712px; OBS:No CSS, geralmente não precisa colocar a altura (height)*/
+    /* margin-right: auto;    centraliza o elemento horizontalmente */
+    /* margin-left: auto;     centraliza o elemento horizontalmente */
+    /* margin: auto;  centraliza o elemento horizontalmente e verticalmente */
+    margin: 56px auto 0px; /* 56px de margem superior, auto para centralizar horizontalmente e 0px de margem inferior */
+    padding: 0px 24px; /* 0px de padding superior e inferior, 24px de padding lateral */
+}
+
+/* profile */
+#profile {
+    text-align: center; /* Centraliza o conteúdo do elemento */
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    /* margin: auto;  img é um elemento inline, então margin: auto; não terá efeito. Para centralizar, você pode usar display: block; */
+    /* display: block;  Faz a imagem se comportar como um elemento de bloco, permitindo que margin: auto; funcione */
+    border-radius: 50%; /* Faz a imagem ficar redonda */
+}
+
+#profile p {
+    font-weight: 500;
+    /* font-size: 16px;  Por padrão, o tamanho da fonte é 16px, então não é necessário declarar */
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/* switch */
+#switch {
+    position: relative; /* posiciona o elemento de forma relativa em relação ao seu elemento pai */
+    width: 64px; /* define a largura do elemento como 64px */
+    margin: 4px auto; /* centraliza o elemento horizontalmente */
+}
+#switch button {
+    width: 32px; /* define a largura do botão como 32px */
+    height: 32px; /* define a altura do botão como 32px */
+    background: white var(--switch-bg-url) no-repeat center; /* define a cor de fundo do botão como branca, com a imagem definida na variável --switch-bg-url centralizada e sem repetição */
+    border: 0; /* remove a borda do botão */
+    border-radius: 50%; /* adiciona um raio de borda de 50% */
+
+    position: absolute; /* posiciona o botão de forma absoluta em relação ao seu elemento pai */
+    top: 50%; /* posiciona o botão no meio do elemento pai */
+    left: 0; /* posiciona o botão à esquerda do elemento pai */
+    z-index: 1; /* define a ordem de empilhamento do botão como 1 */
+    transform: translateY(-50%); /* define a posição inicial do botão como 0 */
+}
+
+.light #switch button {
+    right: 0; /* posiciona o botão à direita do elemento pai */
+    left: initial; /* reseta a posição do botão à esquerda do elemento pai */
+}
+
+#switch span {
+    display: block; /* faz com que o span seja exibido como um bloco */
+    width: 64px; /* define a largura do span como 64px */
+    height: 24px; /* define a altura do span como 24px */
+    background: var(--surface-color); /* define a cor de fundo do span como a cor definida na variável --surface-color */
+    border: 1px solid var(--stroke-color); /* adiciona uma borda de 1px com a cor definida na variável --stroke-color */
+    backdrop-filter: blur(4px); /* adiciona um efeito de desfoque ao fundo do elemento */
+    -webkit-backdrop-filter: blur(4px); /* adiciona um efeito de desfoque ao fundo do elemento para navegadores baseados em WebKit */
+    border-radius: 9999px; /* adiciona um raio de borda de 9999px, fazendo com que o elemento fique totalmente arredondado */
+}
+
+/* Links */
+ul {
+    list-style: none; /* remove os marcadores da lista */
+    display: flex; /* faz com que os itens da lista fiquem em linha */
+    flex-direction: column; /* organiza os itens em uma coluna */
+    gap: 16px; /* adiciona um espaço de 16px entre os itens da lista */
+    padding: 24px 0; /* adiciona um padding de 24px em cima e embaixo, e 0 nos lados */
+}
+
+ul li a {
+   border: 1px solid var(--stroke-color); /* adiciona uma borda branca de 1px ao redor de cada item da lista com 50% de opacidade */
+   display: flex; /* faz com que o conteúdo do link fique em linha */
+   align-items: center; /* alinha o conteúdo do link verticalmente */
+   justify-content: center; /* alinha o conteúdo do link horizontalmente */
+   padding: 16px 24px; /* adiciona um padding de 16px na vertical e 24px na horizontal */
+   background-color: var(--surface-color); /* adiciona uma cor de fundo branca com 10% de opacidade */
+   border-radius: 8px; /* adiciona um raio de borda de 8px */
+   backdrop-filter: blur(10px); /* adiciona um efeito de desfoque ao fundo do elemento */
+   -webkit-backdrop-filter: blur(10px); /* adiciona um efeito de desfoque ao fundo do elemento para navegadores baseados em WebKit */
+   text-decoration: none; /* remove o sublinhado dos links */
+   font-weight: 500; /* adiciona uma fonte com peso 500 */
+
+   transition: background-color 0.3s, border 0.3s; /* adiciona uma transição suave de 0.3s para a cor de fundo e a borda */
+}
+
+/* Pseudo-selector :hover é usado para adicionar um efeito quando o usuário passa o mouse sobre o elemento */
+/* Adicionando um efeito de hover aos links da lista */
+ul li a:hover {
+    background-color: var(--surface-color-hover); /* adiciona uma cor de fundo branca com 20% de opacidade ao passar o mouse */
+    border: 1.5px solid var(--text-color); /* adiciona uma borda branca de 1.5px ao redor de cada item da lista com 70% de opacidade ao passar o mouse */
+}
+
+/* Social Links */
+#social-links {
+    display: flex; /* faz com que os itens da lista fiquem em linha */
+    justify-content: center; /* alinha o conteúdo do elemento horizontalmente */
+
+    padding: 24px 0; /* adiciona um padding de 24px em cima e embaixo, e 0 nos lados */
+    font-size: 24px; /* aumenta o tamanho da fonte para 24px */
+}
+
+#social-links a {
+    text-decoration: none; /* remove o sublinhado dos links */
+    display: flex; /* faz com que o conteúdo do link fique em linha */
+    align-items: center; /* alinha o conteúdo do link verticalmente */
+    justify-content: center; /* alinha o conteúdo do link horizontalmente */
+    padding: 16px; /* adiciona um padding de 16px ao redor do link */
+    transition: background 0.2s; /* adiciona uma transição suave de 0.2s para a cor de fundo */
+    border-radius: 50%; /* adiciona um raio de borda de 50%, fazendo com que o elemento fique circular */
+}
+#social-links a:hover {
+    background: var(--hilight-color); /* adiciona uma cor de fundo branca com 20% de opacidade ao passar o mouse */
+    padding: 16px; /* adiciona um padding de 16px ao passar o mouse */
+}
+
+footer {
+    text-align: center; /* Centraliza o conteúdo do elemento */
+    padding: 24px 0; /* Adiciona um padding de 24px em cima e embaixo, e 0 nos lados */
+    font-size: 14px; /* Define o tamanho da fonte para 14px */
+    color: rgba(255, 255, 255, 0.5); /* Define a cor do texto para branco com 50% de opacidade */
+}

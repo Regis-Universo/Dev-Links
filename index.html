@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DevLinks</title>
+        <link rel="stylesheet" href="./reset.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <!-- " ./ " significa que o arquivo está na mesma pasta do index.html -->
+    </head>
+    <body>
+        <!-- " div"  é uma CAIXA GENÉRICA que NÃO TEM SIGNIFICADO ESPECÍFICO e o browser NÃO APLICA ESTILOS NELA -->
+
+        <!-- "id" é um IDENTIFICADOR ÚNICO, ou seja, só pode existir 1 elemento com esse id na página -->
+
+        <!-- Para criar um elemento com id, usamos # + nome_do_id 
+      por exemplo: #container + Enter -->
+
+        <div id="container">
+            <div id="profile">
+                <img
+                    src="./assets/regis-e-mostarda.jpg"
+                    alt="Foto de Régis e Mostarda sorrindo, feliz da vida!!!"
+                />
+                <p>@regiscachorrinho</p>
+            </div>
+            <div id="switch" onclick="toggleTheme()">
+                <button>
+                    
+                </button>
+                <span> </span>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="https://github.com/Regis-Universo" target="_blank" rel="noopener noreferrer">Ver meu Portfolio</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/régis-r-santos-405aa91a8/" target="_blank" rel="noopener noreferrer">Ver meu LinkedIn</a>
+                </li>
+                <li>
+                    <a href=" https://lattes.cnpq.br/8495545196288363" target="_blank" rel="noopener noreferrer">Ver meu Currículo Lattes</a>
+                    <!-- Digite a:blank + enter para criar um novo link com target="_blank" e rel="noopener noreferrer" -->
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@regisuniverso" target="_blank" rel="noopener noreferrer">Ver meu YouTube</a>
+                </li>
+            </ul>
+
+            <div id="social-links"> <!-- para criar uma div com id digite div#nome_do_id + enter -->
+                <a href="https://github.com/Regis-Universo" target="_blank">
+                    <ion-icon name="logo-github"></ion-icon>
+                </a>
+                <a href="https://www.linkedin.com/in/régis-r-santos-405aa91a8/" target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a href="https://www.instagram.com/regisuniverso/" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://www.youtube.com/@regisuniverso" target="_blank">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+            </div>
+            <footer>
+                <p>Feito com ❤️ por <a href="https://github.com/Regis-Universo" target="_blank" rel="noopener noreferrer">Régis Santos</a></p>
+            </footer>
+        </div>
+
+        <script 
+            type="module" 
+            src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js">
+        </script>
+        <script 
+        nomodule 
+        src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js">
+        </script>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
