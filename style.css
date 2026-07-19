@@ -41,6 +41,7 @@ body {
     /* BACKGROUND: color image repeat position size */
 
     background: var(--bg-url)  no-repeat top center / cover;
+    height: 100vh;  /* define a altura do elemento como 100% da altura da tela */
 }
 
 body * {
@@ -52,7 +53,8 @@ body * {
 
 /* " # " significa que o seletor é um ID, ou seja, só pode existir 1 elemento com esse id na página */
 #container {
-    width: 360px;
+    width: 100%; /* define a largura do elemento como 100% da largura do elemento pai */
+    max-width: 580px; /* OBS: No CSS, geralmente não precisa colocar a largura máxima (max-width) */
     /* height: 712px; OBS:No CSS, geralmente não precisa colocar a altura (height)*/
     /* margin-right: auto;    centraliza o elemento horizontalmente */
     /* margin-left: auto;     centraliza o elemento horizontalmente */
@@ -87,6 +89,7 @@ body * {
     width: 64px; /* define a largura do elemento como 64px */
     margin: 4px auto; /* centraliza o elemento horizontalmente */
 }
+
 #switch button {
     width: 32px; /* define a largura do botão como 32px */
     height: 32px; /* define a altura do botão como 32px */
@@ -99,11 +102,16 @@ body * {
     left: 0; /* posiciona o botão à esquerda do elemento pai */
     z-index: 1; /* define a ordem de empilhamento do botão como 1 */
     transform: translateY(-50%); /* define a posição inicial do botão como 0 */
+    animation: slide-back 0.4s; /* adiciona uma animação de 0.4s para o botão */
 }
 
 .light #switch button {
-    right: 0; /* posiciona o botão à direita do elemento pai */
-    left: initial; /* reseta a posição do botão à esquerda do elemento pai */
+    animation: slide-in 0.4s forwards; /* adiciona uma animação de 0.4s para o botão e forwards significa que a animação termina na última chave */
+}
+
+switch button:hover {
+    cursor: pointer; /* muda o cursor para uma mãozinha quando o usuário passa o mouse sobre o botão */
+    outline: 8px solid var(--hilight-color); /* adiciona um contorno de 8px ao redor do botão com a cor definida na variável --hilight-color */
 }
 
 #switch span {
@@ -167,6 +175,7 @@ ul li a:hover {
     transition: background 0.2s; /* adiciona uma transição suave de 0.2s para a cor de fundo */
     border-radius: 50%; /* adiciona um raio de borda de 50%, fazendo com que o elemento fique circular */
 }
+
 #social-links a:hover {
     background: var(--hilight-color); /* adiciona uma cor de fundo branca com 20% de opacidade ao passar o mouse */
     padding: 16px; /* adiciona um padding de 16px ao passar o mouse */
@@ -177,4 +186,34 @@ footer {
     padding: 24px 0; /* Adiciona um padding de 24px em cima e embaixo, e 0 nos lados */
     font-size: 14px; /* Define o tamanho da fonte para 14px */
     color: rgba(255, 255, 255, 0.5); /* Define a cor do texto para branco com 50% de opacidade */
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    :root {
+        --bg-url: url(./assets/bg-desktop.jpg); /* define uma variável de url de fundo para desktop */
+    }
+
+    .light {
+        --bg-url: url(./assets/bg-desktop/light.jpg); /* define uma variável de url de fundo para desktop em modo light */
+    }
+}
+
+    /* Animations */
+@keyframes slide-in {
+    from {
+        left: 0; /* define a posição inicial do botão como 0 */
+    }
+    to {
+       left: 50%;  /* define a posição final do botão como 50% */
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;  /* define a posição inicial do botão como 50% */
+    }
+    to {
+       left: 0; /* define a posição final do botão como 0 */
+    }
 }
